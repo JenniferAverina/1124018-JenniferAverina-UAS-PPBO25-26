@@ -1,9 +1,9 @@
-package utils;
+package uas.utils;
 
 import java.util.Scanner;
 
 public class CLIUtils {
-  private static Scanner scanner;
+  private static Scanner sc;
 
   static {
     sc = new Scanner(System.in);
