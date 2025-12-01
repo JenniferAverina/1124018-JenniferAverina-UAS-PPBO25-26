@@ -1,8 +1,13 @@
 package uas.models;
 
 public class Windows extends OperatingSystem{
-    public Windows(String version) {
-        super("Windows", version);
+    public Windows(String nama, String version) {
+        super(nama, version);
+    }
+
+    @Override
+    public String getNama() {
+        return "Windows";
     }
 
     @Override

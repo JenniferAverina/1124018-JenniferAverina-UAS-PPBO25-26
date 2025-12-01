@@ -1,8 +1,8 @@
 package uas.models;
 
 public class Ubuntu extends Linux{
-    public Ubuntu(String version) {
-        super("Ubuntu", version, "Gnome");
+    public Ubuntu(String namaDevice, String version) {
+        super(namaDevice, version, "Gnome");
     }
 
     @Override
@@ -12,6 +12,6 @@ public class Ubuntu extends Linux{
 
     @Override
     public String getBootInfo() {
-        return "ubuntu " + super.getBootInfo();
+        return getNama() + super.getBootInfo();
     }
 }

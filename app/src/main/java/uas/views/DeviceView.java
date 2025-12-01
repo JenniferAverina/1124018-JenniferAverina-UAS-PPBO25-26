@@ -46,8 +46,8 @@ public class DeviceView {
 
             menu = CLIUtils.getInt();
             try {
-                if (menu < 1 || menu > 3) {
-                    throw new InvalidMenuException("Salah pilihan operating system:" + menu);
+                if (menu < 0 || menu > 3) {
+                    throw new InvalidMenuException("Salah pilihan menu:" + menu);
                 }
                 switch (menu) {
                     case 0:
@@ -89,23 +89,30 @@ public class DeviceView {
         String name = CLIUtils.getString();
         System.out.println("masukkan vesion device: ");
         String vers = CLIUtils.getString();
-        switch (device) {
-            case 0:
-                break;
-            case 1:
-                // Windows windowNew = new Windows(vers);
-                deviceController.add(new Device("Windows", vers, name));
-                break;
-            case 2:
-                // Ubuntu ubuntuNew = new Ubuntu(vers);
-                deviceController.add(new Device("Ubuntu", vers, name));
-                break;
-            case 3:
-                // Fedora fedoraNew = new Fedora(vers);
-                deviceController.add(new Device("Fedora", vers, name));
-                break;
-            default:
-                break;
+        try {
+            if (device < 0 || device > 3) {
+                throw new InvalidMenuException("Salah pilihan operating system:" + device);
+            }
+            switch (device) {
+                case 0:
+                    break;
+                case 1:
+                    // Windows windowNew = new Windows(vers);
+                    deviceController.add(new Device("Windows", vers, name));
+                    break;
+                case 2:
+                    // Ubuntu ubuntuNew = new Ubuntu(vers);
+                    deviceController.add(new Device("Ubuntu", vers, name));
+                    break;
+                case 3:
+                    // Fedora fedoraNew = new Fedora(vers);
+                    deviceController.add(new Device("Fedora", vers, name));
+                    break;
+                default:
+                    break;
+            }
+        } catch (InvalidMenuException e) {
+            System.out.println(e.getMessage());
         }
 
     }
@@ -118,7 +125,7 @@ public class DeviceView {
                 System.out.println(device.getBootInfo());
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println("list is empty");
         }
     }
 

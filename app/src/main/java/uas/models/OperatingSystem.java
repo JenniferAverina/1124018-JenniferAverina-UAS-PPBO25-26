@@ -18,7 +18,7 @@ public abstract class OperatingSystem{
     }
 
     public String getBootInfo() {
-        return this.namaDevice + " " + this.version;
+        return getNama() + " " + this.version;
     }
 
     // public abstract String getBootInfo();
