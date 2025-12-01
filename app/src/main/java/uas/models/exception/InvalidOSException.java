@@ -1,2 +1,0 @@
-package uas.models.exception;
-
